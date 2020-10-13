@@ -9,9 +9,8 @@ window.onload = function(){
   let circleTurn;
   var X_CLASS = 'X';
   var O_CLASS = 'O';
-  
   var squares = document.querySelectorAll('#board div');
-
+  var board = document.getElementById('board');
 
   squares.forEach(square=>{
     square.addEventListener('click',handleClick, {once: true})
@@ -22,6 +21,7 @@ window.onload = function(){
     var currentClass = circleTurn ? O_CLASS : X_CLASS;
     placeMark(square,currentClass)
     swapTurns()
+    setBoardHoverClass()
     console.log('clicked')
   }
 
@@ -33,6 +33,17 @@ window.onload = function(){
   function swapTurns(){
     circleTurn = !circleTurn
   }
-
+  
+  function setBoardHoverClass(){
+    board.classList.remove(X_CLASS)
+    board.classList.remove(O_CLASS)
+    if (circleTurn) {
+      board.classList.add(O_CLASS)
+    }
+      else{
+        board.classList.add(X_CLASS)
+    }
+    
+  }
 }
 
