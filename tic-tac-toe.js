@@ -22,9 +22,12 @@ window.onload = function(){
   var board = document.getElementById('board');
   var winningMessageN = document.getElementById('status');
   var winningMessageText = document.querySelectorAll('#status div');
+  var newgameButton = document.getElementById('new game');
   let circleTurn;
 
   startGame()
+
+  newgameButton.addEventListener ('click', startGame)
 
   function startGame(){
     circleTurn = false
